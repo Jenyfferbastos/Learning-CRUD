@@ -14,8 +14,8 @@ function read() {
     console.log(persons)
 };
 function update(name, age) {
-    persons[0].name
-    persons[0].age
+    persons[0].name = name
+    persons[0].age = age
     console.log(persons)
 };
 
@@ -25,7 +25,7 @@ function deletePersons(name, age) {
     })
     console.log(index);
 
-    var removed = persons.splice(0, 1);
+    var removed = persons.splice(index, 1);
     console.log(persons);
 
 };
