@@ -1,19 +1,26 @@
 let person = [
     {
-        "nome": "Jenyffer",
-        "idade": "18",
+        name: "Jenyffer",
+        age: "18",
 
     },
 
 ]
-function create(nome, idade) {
-    
-    person.push({ nome, idade})
+function create(name, age) {
+
+    person.push({ name, age })
 }
 function read() {
+    //console.log(person)
+}
+function update(name, age) {
+    person[0].name = "Felipe"
+    person[0].age = "23"
     console.log(person)
 }
 
-create("Kelvem", "15");
+create("Jenyffer", "18");
 
-read()
+read();
+
+update();
