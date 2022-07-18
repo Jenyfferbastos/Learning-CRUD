@@ -6,8 +6,8 @@ const persons = [
 ];
 
 function create(requisicao, resposta) {
-  persons.push({ name: requisicao.name, age: requisicao.age });
-  return resposta.send();
+  persons.push({ name: requisicao.body.name, age: requisicao.body.age });
+  return resposta.send(persons);
 }
 
 function read(requisicao, resposta) {
