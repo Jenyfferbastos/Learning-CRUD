@@ -8,26 +8,31 @@ const persons = [
 function create(requisicao, resposta) {
   persons.push({ name: requisicao.body.name, age: requisicao.body.age });
   return resposta.send(persons);
-}
+};
 
 function read(requisicao, resposta) {
   return resposta.send(persons);
-}
+};
 
-function update(name, age) {
-  persons[0].name = name;
-  persons[0].age = age;
-  console.log(persons);
-}
+function update(requisicao, resposta) {
+  const posicao = persons.findIndex((person) => {
+    return person.name === requisicao.body.currentName;
+  }
+  )
+  persons[posicao].name = requisicao.body.newName;
+  persons[posicao].age = requisicao.body.age;
+  return resposta.send(persons);
+};
 
-function deletePersons(name, age) {
-  var index = persons.findIndex((person) => {
-    return person === { name, age };
+function deletePersons(requisicao, resposta) {
+  const index = persons.findIndex((person) => {
+    return person === requisicao.body.currentName;
   });
-  console.log(index);
+
 
   persons.splice(index, 1);
-  console.log(persons);
+  return resposta.send(persons);
+
 }
 
 export default {
